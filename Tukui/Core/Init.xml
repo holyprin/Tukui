@@ -1,4 +1,5 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<script file="Eyefinity.lua"/>
 	<Script file="Media.lua"/>
 	<Script file="Graphic.lua"/>
 	<Script file="API.lua"/>
