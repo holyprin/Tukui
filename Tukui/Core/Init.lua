@@ -26,10 +26,12 @@ Engine[1].WoWPatch, Engine[1].WoWBuild, Engine[1].WoWPatchReleaseDate, Engine[1]
 SLASH_RELOADUI1 = "/rl"
 SlashCmdList.RELOADUI = ReloadUI
 
-UIParent:ClearAllPoints()
-UIParent:SetPoint("TOP", WorldFrame, "TOP", 0, 0)
-UIParent:SetHeight(Engine[1].ScreenHeight)
-UIParent:SetWidth(Engine[1].ScreenWidth / 3)
+if (Engine[1].ScreenWidth / Engine[1].ScreenHeight > 1.77777777778) then
+	UIParent:ClearAllPoints()
+	UIParent:SetPoint("TOP", WorldFrame, "TOP", 0, 0)
+	UIParent:SetHeight(Engine[1].ScreenHeight)
+	UIParent:SetWidth(Engine[1].ScreenWidth / 3)
+end
 
 Tukui = Engine
 
