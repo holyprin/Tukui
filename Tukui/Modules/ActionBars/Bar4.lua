@@ -24,7 +24,7 @@ function TukuiActionBars:CreateBar4()
 		Button:SetAttribute("flyoutDirection", "UP")
 		
 		if (i == 1) then
-			Button:SetPoint("TOPLEFT", ActionBar4, Spacing, -Spacing)
+			Button:SetPoint("BOTTOMLEFT", ActionBar4, Spacing, Spacing)
 		else
 			Button:SetPoint("LEFT", PreviousButton, "RIGHT", Spacing, 0)
 		end
