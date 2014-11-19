@@ -8,14 +8,14 @@ C["General"] = {
 	["AutoScale"] = true,
 	["UIScale"] = 0.71,
 	["BackdropColor"] = {0.1, 0.1, 0.1},
-	["BorderColor"] = {0.6, 0.6, 0.6},
-	["HideShadows"] = false,
+	["BorderColor"] = {0.2, 0.2, 0.2},
+	["HideShadows"] = true,
 }
 
 C["ActionBars"] = {
 	["Enable"] = true,
-	["HotKey"] = false,
-	["Macro"] = false,
+	["HotKey"] = true,
+	["Macro"] = true,
 	["ShapeShift"] = true,
 	["Pet"] = true,
 	["SwitchBarOnStance"] = true,
@@ -48,7 +48,7 @@ C["Bags"] = {
 	["ItemsPerRow"] = 11,
 	["PulseNewItem"] = true,
 	["Font"] = "Tukui Outline",
-	["BagFilter"] = false,
+	["BagFilter"] = true,
 }
 
 C["Chat"] = {
@@ -57,7 +57,7 @@ C["Chat"] = {
 	["LinkColor"] = {0.08, 1, 0.36},
 	["LinkBrackets"] = true,
 	["LootFrame"] = true,
-	["Background"] = false,
+	["Background"] = true,
 	["ScrollByX"] = 3,
 	["TabFont"] = "Tukui",
 	["ChatFont"] = "Tukui",
@@ -71,8 +71,8 @@ C["DataTexts"] = {
 	["Battleground"] = true,
 	["LocalTime"] = true,
 	["Time24HrFormat"] = false,
-	["NameColor"] = {1, 1, 1},
-	["ValueColor"] = {1, 1, 1},
+	["NameColor"] = {.8, .8, .8},
+	["ValueColor"] = {.8, .8, .8},
 	["Font"] = "Tukui",
 }
 
@@ -80,7 +80,7 @@ C["Merchant"] = {
 	["AutoSellGrays"] = true,
 	["SellMisc"] = true,
 	["AutoRepair"] = true,
-	["UseGuildRepair"] = false,
+	["UseGuildRepair"] = true,
 }
 
 C["Misc"] = {
@@ -174,9 +174,9 @@ C["UnitFrames"] = {
 	["ArenaAuras"] = true,
 	["BossAuras"] = true,
 	["SerendipityBar"] = true,
-	["OnlySelfDebuffs"] = false,
+	["OnlySelfDebuffs"] = true,
 	["Threat"] = false,
-	["DarkTheme"] = false,
+	["DarkTheme"] = true,
 	["Arena"] = true,
 	["Boss"] = true,
 	["Font"] = "Tukui UF Outline",
