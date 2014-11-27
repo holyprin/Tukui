@@ -23,6 +23,10 @@ local UnitPowerType = UnitPowerType
 TukuiUnitFrames.Units = {}
 TukuiUnitFrames.Headers = {}
 TukuiUnitFrames.Framework = TukuiUnitFrameFramework
+TukuiUnitFrames.HighlightBorder = {
+	bgFile = "Interface\\Buttons\\WHITE8x8",
+	insets = {top = -2, left = -2, bottom = -2, right = -2}
+}
 
 TukuiUnitFrames.RaidBuffsTracking = {
 	PRIEST = {
@@ -33,6 +37,7 @@ TukuiUnitFrames.RaidBuffsTracking = {
 	},
 	DRUID = {
 		{774, "TOPLEFT", {0.8, 0.4, 0.8}},      -- Rejuvenation
+		{155777, "LEFT", {0.8, 0.4, 0.8}},      -- Germination
 		{8936, "TOPRIGHT", {0.2, 0.8, 0.2}},    -- Regrowth
 		{33763, "BOTTOMLEFT", {0.4, 0.8, 0.2}}, -- Lifebloom
 		{48438, "BOTTOMRIGHT", {0.8, 0.4, 0}},  -- Wild Growth
@@ -185,6 +190,19 @@ function TukuiUnitFrames:MouseOnPlayer()
 	end
 end
 
+
+function TukuiUnitFrames:Highlight()
+	if UnitIsUnit("focus", self.unit) then
+		self.Highlight:SetBackdropColor(218/255, 197/255, 92/255, .7)
+		self.Highlight:Show()
+	elseif UnitIsUnit("target", self.unit) then
+		self.Highlight:SetBackdropColor(75/255,  175/255, 76/255, 1)
+		self.Highlight:Show()	
+	else
+		self.Highlight:Hide()
+	end
+end
+
 function TukuiUnitFrames:UpdateShadow(height)
 	local Frame = self:GetParent()
 	local Shadow = Frame.Shadow
@@ -334,7 +352,11 @@ function TukuiUnitFrames:PostUpdateHealth(unit, min, max)
 			end
 		else
 			if (unit == "player" and self:GetAttribute("normalUnit") ~= "pet") then
-				self.Value:SetText("|cff559655"..max.."|r")
+				if (IsRaid) then
+					self.Value:SetText(" ")
+				else
+					self.Value:SetText("|cff559655"..max.."|r")
+				end
 			elseif (unit == "target" or unit == "focus"  or unit == "focustarget" or (unit and strfind(unit, "arena%d"))) then
 				self.Value:SetText("|cff559655"..TukuiUnitFrames.ShortValue(max).."|r")
 			else
@@ -679,6 +701,12 @@ function TukuiUnitFrames:UpdateBossAltPower(minimum, current, maximum)
 	local r, g, b = T.ColorGradient(current, maximum, 0, .8 ,0 ,.8 ,.8 ,0 ,.8 ,0 ,0)
 	
 	self:SetStatusBarColor(r, g, b)
+	
+	if self.Value then
+		local Text = self.Value
+		
+		Text:SetText(current.." / "..maximum)
+	end
 end
 
 function TukuiUnitFrames:Update()
@@ -883,7 +911,7 @@ end
 
 function TukuiUnitFrames:CreateUnits()
 	local Movers = T["Movers"]
-	
+
 	local Player = oUF:Spawn("player")
 	Player:SetPoint("BOTTOMLEFT", TukuiUnitFrames.Anchor, "TOPLEFT", 0, 8)
 	Player:SetParent(Panels.PetBattleHider)
@@ -965,8 +993,6 @@ function TukuiUnitFrames:CreateUnits()
 		local Gap = C.Party.Portrait and 74 or 30
 		
 		local Party = oUF:SpawnHeader(TukuiUnitFrames:GetPartyFramesAttributes())
-		Party:SetFrameStrata("BACKGROUND")
-		Party:SetFrameLevel(5)
 		Party:SetParent(Panels.PetBattleHider)
 		Party:Point("TOPLEFT", UIParent, "TOPLEFT", Gap, -(T.ScreenHeight / 4))
 		
@@ -977,8 +1003,6 @@ function TukuiUnitFrames:CreateUnits()
 	
 	if C.Raid.Enable then
 		local Raid = oUF:SpawnHeader(TukuiUnitFrames:GetRaidFramesAttributes())
-		Raid:SetFrameStrata("BACKGROUND")
-		Raid:SetFrameLevel(5)
 		Raid:SetParent(Panels.PetBattleHider)
 		Raid:Point("TOPLEFT", UIParent, "TOPLEFT", 30, -30)
 		
