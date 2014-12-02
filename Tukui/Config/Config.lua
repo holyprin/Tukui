@@ -177,10 +177,7 @@ C["UnitFrames"] = {
 	["SerendipityBar"] = true,
 	["OnlySelfDebuffs"] = true,
 	["Threat"] = false,
-<<<<<<< HEAD
 	["BossAltPowerText"] = false,
-=======
->>>>>>> Config, bars and chat
 	["DarkTheme"] = true,
 	["Arena"] = true,
 	["Boss"] = true,
