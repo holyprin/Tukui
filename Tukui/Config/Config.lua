@@ -88,7 +88,7 @@ C["Misc"] = {
 	["AltPowerBarEnable"] = true,
 	["ExperienceEnable"] = true,
 	["ReputationEnable"] = true,
-	["ErrorFilterEnable"] = true,
+	["ErrorFilterEnable"] = false,
 }
 
 C["NamePlates"] = {
