@@ -205,51 +205,6 @@ local OnClick = function(self, button)
 	end
 end
 
-function ActionBars:CreateToggleButtons()
-	for i = 2, 5  do
-		local Bar = T.Panels["ActionBar" .. i]
-		local Width = Bar:GetWidth()
-		local Height = Bar:GetHeight()
-		
-		local Button = CreateFrame("Button", nil, UIParent)
-		Button:SetTemplate()
-		Button:RegisterForClicks("AnyUp")
-		Button:SetAlpha(0)
-		Button.Bar = Bar
-		Button.Num = i
-		
-		Button:SetScript("OnClick", OnClick)
-		Button:SetScript("OnEnter", OnEnter)
-		Button:SetScript("OnLeave", OnLeave)
-		
-		Button.Text = Button:CreateFontString(nil, "OVERLAY")
-		Button.Text:Point("CENTER", Button, 0, 0)
-		Button.Text:SetFont(C.Medias.ActionBarFont, 12)
-		
-		if (i == 2) then
-			Button:Size(18, Height)
-			Button:Point("RIGHT", Bar, "LEFT", -3, 0)
-			Button.Text:SetText(L.ActionBars.ArrowRight)
-		elseif (i == 3) then
-			Button:Size(18, Height)
-			Button:Point("LEFT", Bar, "RIGHT", 3, 0)
-			Button.Text:SetText(L.ActionBars.ArrowLeft)
-		elseif (i == 4) then
-			Button:Size(Width, 12)
-			Button:Point("TOP", T.Panels.ActionBar1, "BOTTOM", 0, -3)
-			Button.Text:SetText(L.ActionBars.ArrowDown)
-		elseif (i == 5) then
-			Button:Size(Width, 18)
-			Button:Point("TOP", Bar, "BOTTOM", 0, -3)
-			Button.Text:SetText(L.ActionBars.ArrowRight)
-		end
-		
-		BarButtons[i] = Button
-		
-		T.Panels["ActionBar" .. i .. "ToggleButton"] = Button
-	end
-end
-
 function ActionBars:LoadVariables()
 	if (not TukuiData[GetRealmName()][UnitName("Player")]) then
 		TukuiData[GetRealmName()][UnitName("Player")] = {}

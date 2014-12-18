@@ -43,15 +43,15 @@ Tooltip.Classification = {
 
 
 function Tooltip:CreateAnchor()
-	local DataTextRight = T["Panels"].DataTextRight
+	local RightChatBG = T["Panels"].RightChatBG
 	local Movers = T["Movers"]
 	
 	local Anchor = CreateFrame("Frame", "TukuiTooltipAnchor", UIParent)
-	Anchor:Size(200, DataTextRight:GetHeight() - 4)
+	Anchor:Size(200, RightChatBG:GetHeight() - 4)
 	Anchor:SetFrameStrata("TOOLTIP")
 	Anchor:SetFrameLevel(20)
 	Anchor:SetClampedToScreen(true)
-	Anchor:SetPoint("BOTTOMRIGHT", DataTextRight, 0, 2)
+	Anchor:SetPoint("BOTTOMRIGHT", RightChatBG, 0, 8)
 	Anchor:SetMovable(true)
 	
 	self.Anchor = Anchor

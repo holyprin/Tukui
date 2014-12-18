@@ -945,11 +945,11 @@ function Bags:Enable()
 	local GameMenu = GameMenuFrame
 	local Bank = BankFrameItem1
 	local BankFrame = BankFrame
-	local DataTextLeft = T["Panels"].DataTextLeft
-	local DataTextRight = T["Panels"].DataTextRight
+	local LeftChatBG = T["Panels"].LeftChatBG
+	local RightChatBG = T["Panels"].RightChatBG
 	
-	self:CreateContainer("Bag", "BOTTOMRIGHT", DataTextRight, "TOPRIGHT", 0, 6)
-	self:CreateContainer("Bank", "BOTTOMLEFT", DataTextLeft, "TOPLEFT", 0, 6)
+	self:CreateContainer("Bag", "BOTTOMRIGHT", RightChatBG, "TOPRIGHT", 0, 14)
+	self:CreateContainer("Bank", "BOTTOMLEFT", LeftChatBG, "TOPLEFT", 0, 14)
 	self:HideBlizzard()
 	self:SetBagsSearchPosition()
 	self:SetTokensPosition()
