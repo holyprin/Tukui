@@ -79,10 +79,6 @@ function TukuiUnitFrames:Target()
 	
 	Power.frequentUpdates = true
 	
-	--[[Power.colorPower = true
-	Power.frequentUpdates = true
-	Power.colorDisconnected = true]]
-	
 	if DarkTheme then
 		Power.colorTapping = true
 		Power.colorClass = true
@@ -98,6 +94,32 @@ function TukuiUnitFrames:Target()
 	end
 
 	Power.PostUpdate = TukuiUnitFrames.PostUpdatePower
+	
+	local AltPowerBar = CreateFrame("StatusBar", nil, self)
+	AltPowerBar:Height(8)
+	AltPowerBar:SetStatusBarTexture(C.Medias.Normal)
+	AltPowerBar:GetStatusBarTexture():SetHorizTile(false)
+	AltPowerBar:SetStatusBarColor(0, 0, 0)
+	AltPowerBar:SetPoint("LEFT")
+	AltPowerBar:SetPoint("RIGHT")
+	AltPowerBar:SetPoint("BOTTOM", Health, "BOTTOM", 0, 0)
+	AltPowerBar:SetBackdrop({
+		bgFile = C.Medias.Blank, 
+		edgeFile = C.Medias.Blank, 
+		tile = false, tileSize = 0, edgeSize = T.Scale(1), 
+		insets = { left = 0, right = 0, top = T.Scale(-1), bottom = 0}
+	})
+	AltPowerBar:SetBackdropColor(0, 0, 0)
+	AltPowerBar:SetBackdropBorderColor(0, 0, 0)
+	AltPowerBar:SetFrameLevel(Health:GetFrameLevel() + 1)
+	
+	if C.UnitFrames.AltPowerText then
+		AltPowerBar.Value = AltPowerBar:CreateFontString(nil, "OVERLAY")
+		AltPowerBar.Value:SetFontObject(Font)
+		AltPowerBar.Value:Point("CENTER", 0, 0)
+	end
+	
+	AltPowerBar.PostUpdate = TukuiUnitFrames.UpdateAltPower
 	
 	if C.UnitFrames.Portrait then
 		local Portrait = CreateFrame("PlayerModel", nil, Health)
@@ -363,6 +385,7 @@ function TukuiUnitFrames:Target()
 	self.Health.bg = Health.Background
 	self.Power = Power
 	self.Power.bg = Power.Background
+	self.AltPowerBar = AltPowerBar
 	self.RaidIcon = RaidIcon
 	self.Threat = Threat
 end
