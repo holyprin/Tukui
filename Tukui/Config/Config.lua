@@ -150,7 +150,7 @@ C["Tooltips"] = {
 	["UnitHealthText"] = true,
 	["ShowSpec"] = true,
 	["MouseOver"] = false,
-	["HealthFont"] = "Tukui",
+	["HealthFont"] = "Tukui Outline",
 	["HealthTexture"] = "Tukui",
 }
 
@@ -176,6 +176,7 @@ C["UnitFrames"] = {
 	["BossAuras"] = true,
 	["SerendipityBar"] = true,
 	["OnlySelfDebuffs"] = true,
+	["OnlySelfBuffs"] = false,
 	["Threat"] = false,
 	["DarkTheme"] = true,
 	["BossAltPowerText"] = false,
