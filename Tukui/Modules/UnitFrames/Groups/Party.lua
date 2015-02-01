@@ -25,7 +25,7 @@ function TukuiUnitFrames:Party()
 	
 	Health.Background = Health:CreateTexture(nil, "BORDER")
 	Health.Background:SetAllPoints()
-	Health.Background:SetTexture(.1, .1, .1)
+	Health.Background:SetTexture(0, 0, 0)
 	
 	Health.frequentUpdates = true
 	
@@ -41,7 +41,7 @@ function TukuiUnitFrames:Party()
 		Health.colorTapping = false
 		Health.colorDisconnected = false
 		Health.colorClass = false
-		Health:SetStatusBarColor(0.2, 0.2, 0.2, 1)
+		Health:SetStatusBarColor(0.35, 0.35, 0.35, 1)
 		Health.Background:SetVertexColor(0, 0, 0, 1)
 	else
 		Health.colorTapping = true

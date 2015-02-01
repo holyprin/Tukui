@@ -791,8 +791,8 @@ function TukuiUnitFrames:GetRaidFramesAttributes()
 			self:SetWidth(header:GetAttribute("initial-width"))
 			self:SetHeight(header:GetAttribute("initial-height"))
 		]],
-		"initial-width", T.Scale(66),
-		"initial-height", T.Scale(50),
+		"initial-width", T.Scale(80),
+		"initial-height", T.Scale(45),
 		"showParty", true,
 		"showRaid", true,
 		"showPlayer", true,
@@ -826,8 +826,8 @@ function TukuiUnitFrames:GetPetRaidFramesAttributes()
 		"columnAnchorPoint", "LEFT",
 		"yOffset", T.Scale(-4),
 		"xOffset", T.Scale(4),
-		"initial-width", T.Scale(66),
-		"initial-height", T.Scale(50),
+		"initial-width", T.Scale(80),
+		"initial-height", T.Scale(45),
 		"oUF-initialConfigFunction", [[
 			local header = self:GetParent()
 			self:SetWidth(header:GetAttribute("initial-width"))

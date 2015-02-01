@@ -20,7 +20,7 @@ function TukuiUnitFrames:Raid()
 	local Health = CreateFrame("StatusBar", nil, self)
 	Health:SetPoint("TOPLEFT")
 	Health:SetPoint("TOPRIGHT")
-	Health:Height(28)
+	Health:Height(24)
 	Health:SetStatusBarTexture(HealthTexture)
 	
 	if C.Raid.VerticalHealth then
@@ -29,7 +29,7 @@ function TukuiUnitFrames:Raid()
 	
 	Health.Background = Health:CreateTexture(nil, "BORDER")
 	Health.Background:SetAllPoints()
-	Health.Background:SetTexture(.1, .1, .1)
+	Health.Background:SetTexture(0, 0, 0)
 	
 	if C.Raid.ShowHealthText then
 		Health.Value = Health:CreateFontString(nil, "OVERLAY", 1)
@@ -45,7 +45,7 @@ function TukuiUnitFrames:Raid()
 		Health.colorTapping = false
 		Health.colorDisconnected = false
 		Health.colorClass = false
-		Health:SetStatusBarColor(0.2, 0.2, 0.2, 1)
+		Health:SetStatusBarColor(0.35, 0.35, 0.35, 1)
 		Health.Background:SetVertexColor(0, 0, 0, 1)
 	else
 		Health.colorTapping = true
@@ -180,9 +180,9 @@ function TukuiUnitFrames:Raid()
 		TukuiUnitFrames:CreateAuraWatch(self)
 		
         local RaidDebuffs = CreateFrame("Frame", nil, self)
-        RaidDebuffs:SetHeight(22)
-        RaidDebuffs:SetWidth(22)
-        RaidDebuffs:SetPoint("CENTER", Health)
+        RaidDebuffs:SetHeight(18)
+        RaidDebuffs:SetWidth(18)
+        RaidDebuffs:SetPoint("BOTTOMLEFT", Health, "BOTTOMLEFT", 5, 5)
         RaidDebuffs:SetFrameLevel(Health:GetFrameLevel() + 20)
         RaidDebuffs:SetBackdrop(TukuiUnitFrames.Backdrop)
         RaidDebuffs:SetBackdropColor(0, 0, 0)
